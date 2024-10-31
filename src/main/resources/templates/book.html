@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <script src="https://kit.fontawesome.com/1979f62d1e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="navbar">
+        <h1><i class="fa-solid fa-paw"></i>UrbanPetHouse</h1>
+        <nav class="nav-items">
+            <ul>
+                <li><a th:href="@{/}">Home</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="containerbook">
+        <div class="align">
+            <div class="headingbook">
+                <h1>Book Here!</h1>
+            </div>
+            <form class="reg" th:action="@{/process}" method="post" th:object="${book}" >
+
+                <div class="popup" th:if="${msg}" >
+                    <h3 th:text="${msg}" style="font-size: 14px;"></h3>
+                </div>
+
+                <div class="box">
+                    <Label>Name </Label>
+                    <input class="ip " type="text" name="name" placeholder="Thomas Shelby" th:value="${book.name}" id="name" onkeyup="namecheck()" required>
+                    <p id="nameerr"></p>
+    
+                </div>
+                <div class="box">
+                    <Label>Phone No.</Label>
+                    <input class="ip " type="text" name="phoneno" placeholder="9876543210" th:value="${book.phoneno}" id="phone" onkeyup="phonecheck()" required>
+                    <p id="phoneerr" ></p>
+                    
+                </div>
+                <div class="box">
+                    <Label>Address</Label>
+                    <textarea name="address" id="add" th:value="${book.address}" onkeyup="addcheck()" required></textarea>
+                    <p id="adderr" ></p>
+                </div>
+            
+                <div class="box">
+                    <Label>Services</Label>
+                    <input class="role" type="radio" name="service"  value="Home Visit"  id="homevisit" required> Home Visit
+                    <input class="role" type="radio" name="service" value="Boarding"  id="boarding" required>  Boarding
+                </div>
+                <div class="box">
+                    <Label>Service Type</Label>
+                    <select name="type" id="type" class="ip" required  th:value="${book.type}">
+                        <option value=""> -- Service Type --</option>
+                        <option value="Basic Home Visit">Basic Home Visit</option>
+                        <option value="Extended Home Visit">Extended Home Visit</option>
+                        <option value="Overnight Stay">Overnight Stay</option>
+                        <option value="Standard Boarding">Standard Boarding</option>
+                        <option value="Premium Boarding">Premium Boarding</option>
+                    </select>
+                </div>
+                <div class="box">
+                    <Label>Service Date</Label>
+                    <input type="datetime-local" name="date" id="date" class="ip" required th:value="${book.date}" style="color: rgb(133, 117, 72);">
+                </div>
+                <div class="box">
+                    <Label>Price</Label>
+                    <input type="number" name="price" id="price" class="ip" readonly placeholder="Price in INR">
+                </div>
+
+                <div th:if="${bookingId}" class="Receipt">
+                    <a th:href="@{/generatePdf(bookingId=${bookingId})}" download>Download Receipt</a>
+                </div> 
+                <div class="b">
+                    <button type="submit">Book<i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+
+
+            </form>
+
+            
+        </div>
+    </div>
+    <br> <br>
+    <hr>
+    <footer>
+        <p>&copy; 2023 UrbanPetHouse. All rights reserved.</p>
+    </footer>
+    <script th:src="@{/script.js}"></script>
+
+
+
+</body>
+</html>

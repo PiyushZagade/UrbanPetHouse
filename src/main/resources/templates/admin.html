@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <script src="https://kit.fontawesome.com/1979f62d1e.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <h1><i class="fa-solid fa-paw"></i>UrbanPetHouse</h1>
+        <nav class="nav-items">
+            <ul>
+                <li><a th:href="@{/}">Home</a></li>
+                <li><a th:href="@{/book}">Booking</a></li>
+            </ul>
+        </nav>
+        <button class="menu-toggle" onclick="toggleNavbar()">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+
+    <div class="adminh1">
+        <h1>Admin Portal</h1>
+    </div>
+
+    <div class="searchcon">
+        <h3 style="color: rgb(208, 43, 43); text-align: center;">Pending Data</h3>
+        <input type="search" onkeyup="searchinput()" name="search" id="search" placeholder="Search here">
+        <!-- search  -->
+        <div class="searchmsg">
+            <p></p>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Service</th>
+                <th>Service Type</th>
+                <th>Date</th>
+                <th>Price</th>
+                <th>Mark Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each=" b : ${book}">
+                <td>
+                    <a th:href="@{/user/{id}(id=${b.id})}">
+                        <span th:text="'UPH' + ${b.id}"></span>
+                    </a>
+                </td>
+                <td th:text="${b.name}"></td>
+                <td th:text="${b.service}"></td>
+                <td th:text="${b.type}"></td>
+                <td th:text="${#strings.replace(b.date, 'T', ' ')}" style="color: blue;"></td>
+                <td th:text="${b.price}"></td>
+                <td>
+                    <form th:action="@{/delete/{id}(id=${b.id})}" method="post" class="adminform">
+                        <button type="submit" class="btn">Completed</button>
+                    </form>
+                </td>
+            </tr>
+
+
+        </tbody>
+    </table>
+
+    <script>
+        const searchinput = () => {
+            let query = $("#search").val();
+            console.log(query);
+            if (query === "") {
+                $(".searchmsg").hide();
+            } else {
+                let url = `http://localhost:8080/search/${query}`;
+                fetch(url)
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then((data) => {
+                        let txt = `<div>`; // Adding a header for clarity
+                        data.forEach((book) => {
+                            txt += `<a href='/user/${book.id}'><p>${book.name}</p></a>`;
+                        });
+                        txt += `</div>`;
+                        $(".searchmsg").html(txt);
+                        $(".searchmsg").show();
+                    })
+                    .catch((error) => {  // Optional: add error handling
+                        console.error('Error fetching data:', error);
+                        $(".searchmsg").html("<p>Error fetching results. Please try again.</p>");
+                        $(".searchmsg").show();
+                    });
+            }
+        }
+
+    </script>
+
+
+</body>
+
+</html>

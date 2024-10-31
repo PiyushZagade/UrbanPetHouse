@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <script src="https://kit.fontawesome.com/1979f62d1e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="navbar">
+        <h1><i class="fa-solid fa-paw"></i>UrbanPetHouse</h1>
+        <nav class="nav-items">
+            <ul>
+                <li><a th:href="@{/}">Home</a></li>
+                <li><a th:href="@{/admin}">Admin</a></li>
+                <li><a th:href="@{/book}">Booking</a></li>
+            </ul>
+        </nav>
+        <button class="menu-toggle" onclick="toggleNavbar()">
+            <i class="fas fa-bars"></i>
+          </button>
+    </div>
+
+    <div class="userdcontainer">
+        <div class="userd">
+            <h1 th:text="${book.service}">Service</h1>
+           
+            <h3 th:text="${book.name}" >Name</h3>
+            <p th:text="'Phone No: ' +${book.phoneno}">Phone no.</p>
+            <p th:text="'Address: ' +${book.address}">Address</p>
+            <p th:text="'Type: ' +${book.type}">Service Type</p>
+            <p th:text="'Date: ' +${#strings.replace(book.date, 'T', ' ')}" style="color: blue;">date</p>
+            <p th:text="'Price: ' +${book.price} + ' Rs'" style="color: green;">Price</p>
+        </div>
+    </div>
+
+
+    <script th:src="@{/script.js}"></script>
+</body>
+</html>
