@@ -307,7 +307,7 @@ strong{
   color: #273B37;
 }
 .align{
-  margin-top: 6%;
+  margin-top: 11%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -616,6 +616,15 @@ table a:hover{
     font-size: 0.9em;
     width: 95%;
   }
+  .r{
+    display: flex;
+    flex-direction: column;
+    display: inline;
+  }
+  .r label{
+    margin-top:1.5rem;
+    display: block;
+  }
 }
 
 /* For screens 768px and below (iPhone XR size) */
@@ -685,6 +694,14 @@ table a:hover{
   table {
     font-size: 1em;
     width: 100%;
+  }
+  .r{
+    display: flex;
+    display: inline;
+  }
+  .r label{
+    margin-top:1.5rem;
+    display: block;
   }
 }
 
