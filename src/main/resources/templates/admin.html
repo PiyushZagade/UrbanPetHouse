@@ -81,7 +81,8 @@
             if (query === "") {
                 $(".searchmsg").hide();
             } else {
-                let url = `http://localhost:8080/search/${query}`;
+                // let url = `http://localhost:8080/search/${query}`;
+                let url = `https://urbanpethouse.onrender.com/search/${query}`;
                 fetch(url)
                     .then((response) => {
                         if (!response.ok) {

@@ -302,32 +302,41 @@ strong{
 }
 
 .headingbook{
-  margin-top: 4rem;
-    text-align: center;
-    margin-bottom: 1rem;
-    color: rgb(133, 117, 72);
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #273B37;
+}
+.align{
+  margin-top: 6%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .headingbook h1{
     padding-left: 0;
 }
 .reg{
-    width: 90%;
-    min-width: 390px;
-    padding: 25px 30px 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    background-color: #F0F0F1 ;
-    color: rgb(133, 117, 72);
+  width: 90%;
+  max-width: 400px;
+  padding:20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  background-color: #F0F0F1 ;
+  color: #273B37;
 }
 
 .box{
-    margin-top:1.5rem;
+  margin-top:1.5rem;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
 
 }
 .box p i{
@@ -347,16 +356,16 @@ strong{
 }
 
 .ip{
-    margin-left: 1.2rem ;
-    font-size: 1rem;
-    padding-left: 7px;
-    width: 250px;
-    border: 0;
-    outline: 0;
-    height: 2rem;
-    color: black;
-    background-color: #F0F0F1 ;
-    border-bottom: 1px solid black;
+  margin-left: 1rem ;
+  font-size: 1rem;
+
+  width: calc(100% - 6rem);
+  border: 0;
+  outline: 0;
+  height: 2rem;
+  color: rgb(133, 117, 72);
+  background-color: #F0F0F1 ;
+  border-bottom: 1px solid black;
 }
 .b{
     margin-top: 1.7rem;
@@ -386,8 +395,7 @@ strong{
 }
 
 .box textarea{
-  min-width: 250px;
-  max-width: 304px;
+  width: 100%;
   max-height: 85px;
   margin-left: 1.2rem ;
     font-size: 1rem;
@@ -569,7 +577,6 @@ table a:hover{
 @media only screen and (max-width: 480px) {
   h1 {
     font-size: 1rem;
-    padding-left: 20px;
   }
   
   h2 {
@@ -577,6 +584,7 @@ table a:hover{
   }
   
   .navbar {
+    width: 100%;
     padding: 10px;
   }
   
@@ -595,7 +603,7 @@ table a:hover{
   }
   
   .reg {
-    width: 100%;
+    width: 80%;
     padding: 15px;
   }
 
@@ -613,11 +621,11 @@ table a:hover{
 /* For screens 768px and below (iPhone XR size) */
 @media only screen and (max-width: 768px) {
   h1 {
-    font-size: 2rem;
-    padding-left: 20px;
+    font-size: 1.2rem;
   }
 
   .menu-toggle {
+    color: black;
     margin-right: 26px;
     display: inline-block;
   }
@@ -626,6 +634,9 @@ table a:hover{
     font-size: 1.75rem;
   }
 
+  .navbar{
+    gap: 0;
+  }
   .nav-items ul {
     display: none;
     flex-direction: column;
@@ -697,7 +708,7 @@ table a:hover{
   }
 
   .reg {
-    width: 70%;
+    width: 80%;
   }
 
   #search {
