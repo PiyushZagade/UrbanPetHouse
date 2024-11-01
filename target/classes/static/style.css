@@ -469,7 +469,7 @@ strong{
 .searchmsg{
   position: absolute;
   display: block;
-  top: 11.08rem;
+  top: 13.08rem;
   left: 43%;
   background-color: white;
   padding: 7px;
@@ -687,8 +687,9 @@ table a:hover{
   }
 
   .searchmsg {
-    width: 80%;
-    left: 10%;
+    width: 65%;
+    left: 15%;
+    top: 27%;
   }
 
   table {
