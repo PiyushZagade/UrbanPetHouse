@@ -225,7 +225,7 @@
     background: none;
   }
 #pic{
-  padding-left: 200px;
+  padding-left: 50px;
   width: 150px;
   float: right;
 }
@@ -469,7 +469,7 @@ strong{
 .searchmsg{
   position: absolute;
   display: block;
-  top: 13.08rem;
+  top: 11.08rem;
   left: 43%;
   background-color: white;
   padding: 7px;
@@ -479,7 +479,7 @@ strong{
 }
 .searchmsg p{
   text-align: left;
-  padding-left: 7px;
+  padding: 4px;
   border-radius: 5px;
 }
 .searchmsg p:hover{
@@ -575,8 +575,11 @@ table a:hover{
 
 /* For screens 480px and below (iPhone SE size) */
 @media only screen and (max-width: 480px) {
+  .align{
+    margin-top: 25%;
+  }
   h1 {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
   
   h2 {
@@ -586,6 +589,7 @@ table a:hover{
   .navbar {
     width: 100%;
     padding: 10px;
+    justify-content: space-evenly;
   }
   
   nav ul {
@@ -625,14 +629,18 @@ table a:hover{
     margin-top:1.5rem;
     display: block;
   }
+
 }
 
 /* For screens 768px and below (iPhone XR size) */
 @media only screen and (max-width: 768px) {
   h1 {
+    padding: 5px;
     font-size: 1.2rem;
   }
-
+  .headingbook h1{
+    margin-top: 10px;
+  }
   .menu-toggle {
     color: black;
     margin-right: 26px;
@@ -658,14 +666,11 @@ table a:hover{
 
 .nav-items.show ul {
     display: flex;
+    flex-flow: wrap;
 }
 
   .serviceslist {
     grid-template-columns: 1fr;
-  }
-
-  .contact form {
-    width: 70%;
   }
 
   .container1 {
@@ -689,7 +694,7 @@ table a:hover{
   .searchmsg {
     width: 65%;
     left: 15%;
-    top: 27%;
+    top: 33%;
   }
 
   table {
@@ -701,15 +706,33 @@ table a:hover{
     display: inline;
   }
   .r label{
+    text-align: center;
     margin-top:1.5rem;
     display: block;
+  }
+  .st, .sd{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .ad{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 9px;
+  }
+  .ad textarea{
+    margin-left: 0;
+  }
+  .pet{
+    margin-top: 17%;
   }
 }
 
 /* For screens 1024px and below (OnePlus 11R and larger tablets) */
 @media only screen and (max-width: 1024px) {
   h1 {
-    font-size: 1.7rem;
+    font-size: 1.2rem;
   }
   
   .navbar {
@@ -732,5 +755,40 @@ table a:hover{
   #search {
     width: 65%;
   }
-  
+  .r{
+    display: flex;
+    display: inline;
+  }
+  .r label{
+    text-align: center;
+    margin-top:1.5rem;
+    display: block;
+  }
+  .st, .sd{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .ad{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 9px;
+  }
+  .ad textarea{
+    margin-left: 0;
+  }
+  .pet{
+    margin-top: 17%;
+  }
+ 
+  .userd{
+    width: 80%;
+  }
+  .contact form {
+    width: 80%;
+  }
+  .contact form label{
+    margin: 3px;
+  }
 } 
