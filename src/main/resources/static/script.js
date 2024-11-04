@@ -79,6 +79,7 @@ function toggleNavbar() {
  
  homevisit.addEventListener("change",()=>{
     if(homevisit.checked){
+      type.selectedIndex=0;
        Array.from(type.options).forEach(option =>{
           if (option.value == "Standard Boarding" || option.value == "Premium Boarding") {
              option.style.display = "none"; 
@@ -91,6 +92,7 @@ function toggleNavbar() {
  
  boarding.addEventListener("change", () => {
     if (boarding.checked) {  
+      type.selectedIndex=0;
         Array.from(type.options).forEach(option => {
             if (option.value == "Basic Home Visit" || option.value == "Extended Home Visit" || option.value == "Overnight Stay") {
                 option.style.display = "none"; 
